@@ -1,8 +1,7 @@
 {
   "name": "turbo_library",
-  "version": "0.0.4",
+  "version": "0.0.0",
   "private": true,
-  "files": ["core"],
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -21,17 +20,6 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "exports": {
-    "./core": {
-      "import": "./core/ui.es.js",
-      "types": "./core/icons/uk.d.ts"
-    },
-    "./additional": {
-      "import": "./core/ui.es.js",
-      "types": "./core/icons/uk.d.ts"
-    }
-  },
-
   "dependencies": {},
   "packageManager": "yarn@1.22.19"
 }
