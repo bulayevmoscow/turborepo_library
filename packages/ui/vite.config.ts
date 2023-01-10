@@ -3,10 +3,13 @@ import react from '@vitejs/plugin-react'
 import { resolve } from 'node:path'
 import dts from 'vite-plugin-dts'
 import { splitVendorChunkPlugin } from 'vite'
+import tsConfigPaths from "vite-tsconfig-paths";
+
+import a from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dts({
+  plugins: [react(),tsConfigPaths(), dts({
     include: ['src'],
   }), splitVendorChunkPlugin()],
   build: {
@@ -16,9 +19,9 @@ export default defineConfig({
       formats: ['es', 'umd'],
       fileName: (format) => `ui.${format}.js`,
     },
-    // rollupOptions: {
-    //   external: [...Object.keys(packageJson.peerDependencies)],
-    // },
+    rollupOptions: {
+      external: [...Object.keys(a.peerDependencies)],
+    },
   },
 
 })
