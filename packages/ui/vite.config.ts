@@ -19,6 +19,7 @@ export default defineConfig({
   }), splitVendorChunkPlugin()],
   build: {
     outDir: '$INIT_CWD/../../../core',
+    
     lib: {
       entry: resolve(__dirname, 'src/icons/uk.tsx'),
       name: 'ReactViteLibrary',
@@ -29,5 +30,8 @@ export default defineConfig({
       external: [...Object.keys(a.peerDependencies)],
     },
   },
+  define: {
+    'process.env.NODE_ENV': '"production"'
+  }
 
 })
